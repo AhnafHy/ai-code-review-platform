@@ -18,6 +18,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Build OpenAI Lambda layer
+        run: |
+          mkdir -p lambda_layer_build/python
+          pip install openai -t lambda_layer_build/python/ \
+            --platform manylinux2014_x86_64 \
+            --python-version 3.11 \
+            --only-binary=:all: \
+            --implementation cp
+          cd lambda_layer_build
+          zip -r ../lambda/openai_layer.zip python/
+          cd ..
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
