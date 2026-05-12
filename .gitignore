@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.env
+.env.local
+*.tfstate
+*.tfstate.backup
+.terraform/
+*.tfvars
+*.log
+*.zip
+frontend/.next/
+frontend/node_modules/
+lambda_layer_build/
