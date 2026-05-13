@@ -122,7 +122,7 @@ def post_github_comment(repo, pr_number, review_data, review_id):
             for positive in review_data['positives']:
                 comment += f"- {positive}\n"
 
-        comment += f"\n---\n*Review ID: `{review_id}` · [View full review](https://your-app.vercel.app/reviews/{review_id})*"
+        comment += f"\n---\n*Review ID: `{review_id}` · [View full review](https://ai-code-review-platform-peach.vercel.app/reviews/{review_id})*"
 
         url = f"https://api.github.com/repos/{repo}/issues/{pr_number}/comments"
         data = json.dumps({'body': comment}).encode('utf-8')
