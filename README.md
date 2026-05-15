@@ -7,6 +7,7 @@ A production-grade AI code review platform that integrates directly with GitHub,
 ## Live Demo
 
 **[Open AI Code Review Platform →](https://ai-code-review-platform-peach.vercel.app/)**
+> **Note:** Reviews are scoped to the first 15,000 characters of the PR diff to manage token costs and latency. Large PRs exceeding this limit would benefit from a chunked review strategy, splitting the diff by file and running parallel Lambda invocations per file, then aggregating results. The SQS architecture already supports this pattern with minimal changes to the reviewer Lambda.
 
 ---
 
